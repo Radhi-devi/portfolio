@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radhi Devi | Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #222;
+      animation: fadeInBody 1s ease-in-out;
+    }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background-color: #18054d ;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #6b2980;
+    }
+    section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      animation: fadeUp 0.7s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #333;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #18054d;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .home-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .home-text h2 span {
+      color: #18054d;
+    }
+    .profile-img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #18054d;
+      max-width: 100%;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color:#18054d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #652c86;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .skills-grid img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    .project-card, .certificate-card {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid #18054d;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-container img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid #18054d;
+      transition: transform 0.3s ease;
+    }
+    .gallery-container img:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      background-color: #18054d;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    .timeline-item {
+      background: #fff;
+      border-left: 4px solid #18054d;
+      padding: 15px 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    .timeline-item:hover {
+      transform: scale(1.02);
+      background: #f9f9f9;
+    }
+
+    /* --- MOBILE RESPONSIVE BREAKPOINTS BELOW --- */
+    @media (max-width: 900px) {
+      section {
+        margin: 30px auto;
+      }
+      .profile-img {
+        width: 240px;
+        height: 240px;
+      }
+      h2 { font-size: 26px;}
+    }
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 10px;
+      }
+      .logo {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      .nav-links li {
+        padding: 3px 0;
+      }
+      .home {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding-bottom: 0;
+      }
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        display: block;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .gallery-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .btn {
+        font-size: 15px;
+        padding: 8px 14px;
+      }
+      section, .project-card, .certificate-card, .timeline-item {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+    @media (max-width: 430px) {
+      header { padding: 10px 3px;}
+      .logo { font-size: 15px; }
+      h2 { font-size: 19px; }
+      section { padding: 0 2px; }
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+      }
+      .btn {
+        font-size: 13px;
+        padding: 6px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">Radhi Devi Alagarsamy</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#certifications">Certificates</a></li>
+    <li><a href="#designs">Designs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+<section id="home" class="home">
+  <div class="home-text">
+    <h2>Hello, I'm <span>Radhi Devi A</span></h2>
+    <p>B.Tech CSBS Student | Developer | Intern @ Infeara</p>
+    <a href="file:///C:/Users/radhi/Downloads/RadhiDevi_ATS_Resume.pdf" class="btn" download>Download Resume</a>
+  </div>
+  <img src="images/profile.jpg" alt="Radhi's photo" class="profile-img">
+</section>
+<br><br>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m Radhi Devi Alagarsamy, a Computer Science and Business Systems (CSBS) student at Thiagarajar College of Engineering. I’m passionate about combining technology with creative thinking to solve real-world problems that matter. As someone who enjoys exploring both development and design, I constantly seek ways to turn ideas into impactful projects.
+  </p>
+  <p>
+    My interests range from web development and mobile app design to artificial intelligence, blockchain, and entrepreneurship. I believe in building solutions that are not just technically sound but also user-centric. As an intern at Infeara Secure Technologies, I’m gaining hands-on experience in development and cybersecurity.
+  </p>
+  <p>
+    Outside of academics, I enjoy lateral thinking, participating in tech events, and expressing ideas through clean visuals and intuitive designs. Whether I’m coding a custom keyboard app or designing an interactive interface, I aim to create experiences that are smart, useful, and thoughtful.
+  </p>
+</section>
+<br><br>
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div><img src="images/69821ec0-c7c2-42ed-bdf8-326ed71f5d63.jpeg" alt="Java"><br>Java</div>
+    <div><img src="images/Automatic Certificate Generation Using Python.jpeg" alt="Python"><br>Python</div>
+    <div><img src="images/Decorate laptops, Hydro Flasks, cars and more with….jpeg" alt="C"><br>C</div>
+    <div><img src="images/LoGo C++.jpeg" alt="C++"><br>C++</div>
+    <div><img src="images/A Simple login page by simple coding Html and Css….jpeg" alt="HTML"><br>HTML</div>
+    <div><img src="images/CSS3.jpeg" alt="CSS"><br>CSS</div>
+  </div>
+</section>
+<br><br>
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-card">
+    <h3>Login Screen in Java</h3>
+    <p>Simple UI with username/password authentication using Java Swing.</p>
+  </div>
+  <div class="project-card">
+    <h3>CancelHate</h3>
+    <p>Android custom keyboard app that detects toxic messages in real-time before posting.</p>
+  </div>
+  <div class="project-card">
+    <h3>Smart Agriculture</h3>
+    <p>Research-based project on sustainable farming in drought-prone Ramanathapuram.</p>
+  </div> 
+   <div class="project-card">
+      <h3>RD Travels</h3>
+      <p>Front-end website with product gallery and WhatsApp inquiry integration.</p>
+    </div> 
+    <section id="education">
+  <h2>Education</h2>
+  <div class="timeline-item">
+    <h3>SSLC (10th Standard)</h3>
+    <p><strong>School:</strong> SRBAKD Girls Higher Secondary School,RJPM.</p>
+    <p><strong>Board:</strong> State Board of Tamil Nadu</p>
+    <p><strong>Year of Completion:</strong> 2022</p>
+    <p><strong>Percentage:</strong> 93%</p>
+  </div>
+  <div class="timeline-item">
+    <h3>HSC (12th Standard)</h3>
+    <p><strong>School:</strong> SRBAKD Girls Higher Secondary School,RJPM.</p>
+    <p><strong>Group:</strong> Computer Science</p>
+    <p><strong>Year of Completion:</strong> 2024</p>
+    <p><strong>Percentage:</strong> 93%</p>
+  </div>
+  <div class="timeline-item">
+    <h3>B.Tech - Computer Science and Business Systems</h3>
+    <p><strong>College:</strong> Thiagarajar College of Engineering,Madurai.</p>
+    <p><strong>University:</strong> Anna University</p>
+    <p><strong>Year:</strong> First Year (2024–2028)</p>
+    <p><strong>Current CGPA:</strong> 8.0 (Till 1st Semester)</p>
+  </div>
+</section>
+</section>
+<br><br>
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>🏆 1st Prize – Treasure Hunt, Women’s Day 2025</li>
+    <li>💡 AI ENCORE – IEEE Participation</li>
+    <li>🎯 NSS Volunteer, Innov Chem Club Member</li>
+  </ul>
+</section><br><br>
+
+<section id="certifications">
+  <h2>Certificates</h2>
+  <div class="certificate-card">
+    <p><strong>Advanced Java Programming</strong></p>
+    <a href="images/java.png" class="btn" target="_blank">View Certificate</a>
+  </div> 
+  <div class="certificate-card">
+    <p><strong>Data Science by IBM </strong></p>
+    <a href="images/dscertificate.png" class="btn" target="_blank">View Certificate</a>
+  </div>
+  <div class="certificate-card">
+    <p><strong>GenAI Learnathon – HCL</strong></p>
+    <a href="images/hclcertificate.png.jpg" class="btn" target="_blank">View Certificate</a>
+  </div><br><br>
+</section>  
+<section id="experience" class="section">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Infeara Secure Technologies (Intern)</h3>
+      <p><strong>Duration:</strong> June 2025 - Present</p>
+      <p>Worked as  front-end development intern.</p>
+    </div>
+  </div>
+</section>
+<br><br>
+  
+<section id="designs">
+  <h2>Designs</h2>
+  <div class="gallery-container">
+    <img src="images/design1.png" alt="Design 1">
+    <img src="images/design2.png" alt="Design 2">
+    <img src="images/design3.png" alt="Design 3">
+    <img src="images/design4.png" alt="Design 4">
+  </div>
+</section>
+<br><br>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:radhidevi794@gmail.com">radhidevi794@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/radhi-devi-alagarsamy-657524309" target="_blank">radhi-devi-alagarsamy</a></p>
+  <p>Location: RAJAPALAYAM, Tamil Nadu.</p>
+</section>
+<footer>
+  <p>© 2025 Radhi Devi. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+
+  
